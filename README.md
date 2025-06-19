@@ -19,7 +19,7 @@ It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean cod
 ## 📁 Folder Structure
 
 ```
-daarut-backend/
+dt-backend/
 ├── src/
 │   ├── controllers/     # Request handlers (logic)
 │   ├── routes/          # API route definitions
