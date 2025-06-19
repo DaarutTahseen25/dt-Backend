@@ -40,8 +40,8 @@ daarut-backend/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/DaarutTahseen25/daarut-backend.git
-cd daarut-backend
+git clone https://github.com/DaarutTahseen25/dt-backend.git
+cd dt-backend
 ```
 
 ### 2. Install Dependencies
@@ -56,7 +56,7 @@ Create a `.env` file:
 
 ```env
 PORT=5000
-DATABASE_URL=postgres://username:password@localhost:5432/daarut_db
+DATABASE_URL=postgres://username:password@localhost:5432/dt_db
 ```
 
 > Replace with your actual PostgreSQL credentials.
