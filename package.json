@@ -1,0 +1,30 @@
+{
+  "name": "dt-backend",
+  "version": "1.0.0",
+  "description": "This is the backend server for the DaarutTahseen LMS project.   It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean code structure and beginner-friendly setup.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaarutTahseen25/dt-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/DaarutTahseen25/dt-backend/issues"
+  },
+  "homepage": "https://github.com/DaarutTahseen25/dt-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
