@@ -20,15 +20,28 @@ It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean cod
 
 ```
 dt-backend/
+├── prisma/
+│   ├── schema.prisma          # Prisma schema
+│   ├── seed.js                # Seed script
+│   └── migrations/            # Auto-generated migrations
 ├── src/
-│   ├── controllers/     # Request handlers (logic)
-│   ├── routes/          # API route definitions
-│   ├── models/          # Database logic (SQL or ORM)
-│   ├── config/          # DB config and env setup
-│   ├── middleware/      # Custom middlewares
-│   └── app.js           # Main express app
-├── index.js             # Entry point
-├── .env                 # Environment variables
+│   ├── config/
+│   │   ├── db.js              # Prisma client setup
+│   │   └── env.js             # dotenv config
+│   ├── controllers/
+│   │   └── user.controller.js # User route handlers
+│   ├── routes/
+│   │   └── user.routes.js     # Express Router
+│   ├── models/                # Not needed (handled by Prisma)
+│   ├── middleware/
+│   │   └── errorHandler.js    # Simple error middleware
+│   ├── utils/
+│   │   └── response.js        # Helper to send responses
+│   ├── app.js                 # Express app instance
+├── index.js                  # Server entry
+├── .env                      # Environment variables
+├── Dockerfile
+├── docker-compose.yaml
 ├── package.json
 └── README.md
 ```
