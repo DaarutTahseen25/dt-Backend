@@ -1,7 +1,7 @@
 # 🛠️ DaarutTahseen Backend API
 
 This is the backend server for the DaarutTahseen LMS project.  
-It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean code structure and beginner-friendly setup.
+It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with a clean, beginner-friendly code structure.
 
 ---
 
@@ -9,8 +9,8 @@ It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean cod
 
 - **Node.js** – JavaScript runtime
 - **Express.js** – Web framework
-- **PostgreSQL** – Relational database
-- **Knex.js / Prisma** (optional) – For DB query building/ORM
+- **PostgreSQL** – Relational database (Dockerized)
+- **Prisma ORM** – Type-safe DB access
 - **Nodemon** – Auto-reload during development
 - **Dotenv** – For managing environment variables
 
@@ -23,7 +23,7 @@ dt-backend/
 ├── prisma/
 │   ├── schema.prisma          # Prisma schema
 │   ├── seed.js                # Seed script
-│   └── migrations/            # Auto-generated migrations
+│   └── migrations/            # Prisma migrations
 ├── src/
 │   ├── config/
 │   │   ├── db.js              # Prisma client setup
@@ -32,16 +32,14 @@ dt-backend/
 │   │   └── user.controller.js # User route handlers
 │   ├── routes/
 │   │   └── user.routes.js     # Express Router
-│   ├── models/                # Not needed (handled by Prisma)
 │   ├── middleware/
 │   │   └── errorHandler.js    # Simple error middleware
 │   ├── utils/
 │   │   └── response.js        # Helper to send responses
 │   ├── app.js                 # Express app instance
-├── index.js                  # Server entry
-├── .env                      # Environment variables
-├── Dockerfile
-├── docker-compose.yaml
+├── index.js                   # Server entry point
+├── .env                       # Environment variables
+├── docker-compose.yaml        # Only runs Postgres
 ├── package.json
 └── README.md
 ```
@@ -69,22 +67,38 @@ Create a `.env` file:
 
 ```env
 PORT=5000
-DATABASE_URL=postgres://username:password@localhost:5432/dt_db
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/dt_db
 ```
 
-> Replace with your actual PostgreSQL credentials.
+> Ensure this URL matches the settings inside `docker-compose.yaml`
 
-### 4. Run the Server
+---
+
+## 🐳 Run PostgreSQL Database with Docker
+
+```bash
+docker-compose up -d
+```
+
+This spins up only the **Postgres database** container with:
+
+- Username: `postgres`
+- Password: `postgres`
+- DB name: `dt_db`
+
+---
+
+## ▶️ Run the Server Locally
 
 ```bash
 # For development
 npm run dev
 
-# Or normal start
+# For production-like start
 npm start
 ```
 
-Server should be running at:  
+Server should now be running at:  
 📍 `http://localhost:5000`
 
 ---
@@ -97,33 +111,33 @@ GET     /api/students     # List students
 POST    /api/teachers     # Add new teacher
 ```
 
-You can test endpoints using tools like **Postman** or **Insomnia**.
+Test your API using **Postman**, **Thunder Client**, or **Insomnia**.
 
 ---
 
 ## ✍️ Contribution Guide
 
-- Keep code clean and modular
-- Use async/await for DB and I/O
-- Create one controller per resource (e.g., `studentsController.js`)
-- Validate input before saving to DB
-- Ask questions freely if stuck!
+- Use clear, modular folder structure
+- Write one controller per resource (e.g., `user.controller.js`)
+- Validate request body before hitting DB
+- Use async/await, and handle errors gracefully
+- Ask the team or consult the docs if unsure!
 
 ---
 
-## 📌 To-Do / Features
+## 📌 To-Do / Feature List
 
 - [ ] Student & Teacher CRUD
-- [ ] Authentication (JWT)
+- [ ] JWT Authentication
 - [ ] Class & Subject Management
-- [ ] File Uploads (PDF, Audio)
-- [ ] Admin Routes
+- [ ] Upload PDFs or Audio (File uploads)
+- [ ] Admin Routes & Role Permissions
 
 ---
 
-## 🕋 Purpose
+## 🕋 Project Vision
 
-This backend powers the Qur'an and Madrasah LMS for DaarutTahseen.  
-Our goal is to make Islamic learning more structured, accessible, and efficient — bi'idhnillāh.
+This backend powers the Qur'an and Madrasah LMS of DaarutTahseen.  
+Our goal is to support Islamic learning with structure, clarity, and technology — *bi'idhnillāh*.
 
-**May Allah accept it from all of us. Āmīn.**
+**May Allah accept it from us all. Āmīn.**
