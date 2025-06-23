@@ -77,7 +77,7 @@ DATABASE_URL=postgres://postgres:postgres@localhost:5432/dt_db
 ## 🐳 Run PostgreSQL Database with Docker
 
 ```bash
-docker-compose up -d
+npm run docker:up
 ```
 
 This spins up only the **Postgres database** container with:
