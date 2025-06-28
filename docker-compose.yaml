@@ -1,0 +1,23 @@
+version: '3.8'  # Compose file format version
+
+services:
+  web:
+    build: .             # Build image from Dockerfile in current dir
+    ports:
+      - "3000:3000"       # Host:Container port
+    volumes:
+      - .:/app           # Mount local code to container
+    depends_on:
+      - db               # Wait for db before starting
+
+  db:
+    image: postgres:15   # Use official Postgres image
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dt_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
