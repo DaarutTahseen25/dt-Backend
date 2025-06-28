@@ -14,8 +14,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+    student
+    teacher
+    admin
+}
+
 model User {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
+  id           Int     @id @default(autoincrement())
+  name         String
+  email        String  @unique
+  phone        String
+  imageUrl     String
+  password     String
+  NIN          String
+  role         Role   @default(student)
+  createdAt    DateTime @default(now())
+}
+
+model Otp {
+  id            Int      @id @default(autoincrement())
+  email         String
+  code          String
+  expiresAt     DateTime
+  @@index([email]) // ← Lookup shortcut!
+}
+
+model TeacherProfile {
+  id     Int   @id @default(autoincrement())
+  user   User  @relation(fields: [userId], references: [id])
+  userId Int
+  subject String
+}
+
+model StudentProfile {
+  id     Int   @id @default(autoincrement())
+  user   User  @relation(fields: [userId], references: [id])
+  userId Int
+  class  String
 }
