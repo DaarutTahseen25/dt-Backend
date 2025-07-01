@@ -1,4 +1,5 @@
 import AppError from "../utils/AppError";
+import jwt from 'jsonwebtoken';
 
 export const authMiddleware = (req, res, next) => {
 

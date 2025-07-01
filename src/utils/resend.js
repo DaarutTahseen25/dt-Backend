@@ -1,7 +1,8 @@
 import { Resend } from "resend"
 
 export const sendOtptoMail = async (email, otp) => {
-  await Resend.emails.send({
+  const resend = new Resend(process.env.RESEND_API_KEY)
+  await resend.emails.send({
     from: 'verify@yourdomain.com',
     to: email,
     subject: 'Your OTP Code for Daarut-Tahseen',
@@ -16,5 +17,6 @@ export const sendOtptoMail = async (email, otp) => {
       </div>
     `,
     text: `Your OTP is ${otp}. It expires in 5 minutes. Do not share this code.`,
-  });
+  })
+
 };

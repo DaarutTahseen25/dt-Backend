@@ -1,4 +1,5 @@
 import { getUser } from "../models/authModel"
+import bcrypt from "bcryptjs"
 
 export const createHashedPassword = async password => {
   const salt = 10

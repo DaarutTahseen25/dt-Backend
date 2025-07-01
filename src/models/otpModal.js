@@ -13,8 +13,11 @@ export const createOtp = async (email) => {
   return res
 }
 
-export const verifyOtp = async email => {
-  return await prisma.otp.findMany({
-    where: { email: email }
-  })
+export const getOtp = async email => {
+  return await prisma.otp.findFirst({
+    where: { email: email },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
 }

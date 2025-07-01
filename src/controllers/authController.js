@@ -1,6 +1,6 @@
 import { createUser, getUser } from '../models/authModel.js';
 import { createHashedPassword } from '../utils/hashedPassword.js';
-import { createOtp, verifyOtp } from '../models/otpModal.js';
+import { createOtp, getOtp } from '../models/otpModal.js';
 import AppError from '../utils/AppError.js';
 import { sendOtptoMail } from '../utils/resend.js';
 
@@ -44,7 +44,7 @@ export const otpVerify = async (req, res, next) => {
   try {
     const { email, code } = req.body;
 
-    const otpRecord = await verifyOtp(email);
+    const otpRecord = await getOtp(email);
 
     if (!otpRecord) {
       throw new AppError('OTP not found', 404);
