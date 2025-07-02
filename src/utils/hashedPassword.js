@@ -1,4 +1,4 @@
-import { getUser } from "../models/authModel"
+import { getUser } from "../models/authModel.js"
 import bcrypt from "bcryptjs"
 
 export const createHashedPassword = async password => {

@@ -1,7 +1,8 @@
-import AppError from "../utils/AppError";
+//import AppError from "../utils/AppError";
 import jwt from 'jsonwebtoken';
+import AppError from '../utils/AppError.js';
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req, _, next) => {
 
   try {
     const authHeader = req.headers.authorization;

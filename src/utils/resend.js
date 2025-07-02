@@ -1,5 +1,6 @@
 import { Resend } from "resend"
 
+
 export const sendOtptoMail = async (email, otp) => {
   const resend = new Resend(process.env.RESEND_API_KEY)
   await resend.emails.send({
@@ -12,11 +13,10 @@ export const sendOtptoMail = async (email, otp) => {
         <p>Hello,</p>
         <p>Your one-time password (OTP) is:</p>
         <h1 style="letter-spacing: 4px;">${otp}</h1>
-        <p>This code is valid for <strong>5 minutes</strong>. Do not share it with anyone.</p>
+        <p>This code is valid for <strong>10 minutes</strong>. Do not share it with anyone.</p>
         <p>Regards,<br/><strong>Daarut-Tahseen</strong> Team</p>
       </div>
     `,
     text: `Your OTP is ${otp}. It expires in 5 minutes. Do not share this code.`,
   })
-
 };

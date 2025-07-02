@@ -1,5 +1,5 @@
 
-import prisma from "../config/db"
+import prisma from "../config/db.js"
 
 export const createUser = async (data) => {
   const res = await prisma.user.create({

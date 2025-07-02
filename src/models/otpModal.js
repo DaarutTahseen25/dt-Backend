@@ -1,5 +1,5 @@
-import prisma from "../config/db"
-import { generateOtp } from "../utils/otp"
+import prisma from "../config/db.js"
+import { generateOtp } from "../utils/otp.js"
 
 export const createOtp = async (email) => {
   const { otp, expiresAt } = generateOtp()

@@ -1,6 +1,6 @@
 import AppError from "../utils/AppError.js"
 
-const errorHandler = (err, _, res, _) => {
+const errorHandler = (err, _, res) => {
 
   console.error('❌', err);
 

@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { otpVerify, userCreate } from "../controllers/authController";
+import { otpVerify, userCreate } from "../controllers/authController.js";
 
 const router = Router()
-router.post("/auth/create-user", userCreate)
+router.post("/create-user", userCreate)
 
-router.post("/auth/verify-otp", otpVerify)
+router.post("/verify-otp", otpVerify)
+
+export default router;
