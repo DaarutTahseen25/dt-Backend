@@ -3,6 +3,7 @@ import { createHashedPassword } from '../utils/hashedPassword.js';
 import { createOtp, getOtp } from '../models/otpModal.js';
 import AppError from '../utils/AppError.js';
 import { sendOtptoMail } from '../utils/resend.js';
+import { signToken } from '../utils/jwt.js';
 
 // ✅ Student Registration
 export const userCreate = async (req, res, next) => {
@@ -21,6 +22,18 @@ export const userCreate = async (req, res, next) => {
       throw new AppError('All fields are required', 400);
     }
 
+    // Validate email format
+    //const emailRegex = /^(([^<>()[\\]\\.,;:\s@\"]+(\\.[^<>()[\\]\\.,;:\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      throw new AppError('Invalid email address', 400);
+    }
+
+    // Validate password length
+    if (data.password.length < 8) {
+      throw new AppError('Password must be at least 8 characters long', 400);
+    }
+
     // Create user with hashed password
     const user = await createUser({
       ...data,
@@ -33,7 +46,7 @@ export const userCreate = async (req, res, next) => {
     //Send Otp to user
     await sendOtptoMail(user.email, otp)
 
-    res.status(201).json({ user });
+    res.status(201).json({ id: user.id, email: user.email });
   } catch (error) {
     next(error);
   }
