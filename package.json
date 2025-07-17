@@ -1,15 +1,11 @@
 {
   "name": "dt-backend",
   "version": "1.0.0",
-  "description": "This is the backend server for the DaarutTahseen LMS project.   It is built with **Node.js**, **Express.js**, and **PostgreSQL**, with clean code structure and beginner-friendly setup.",
+  "description": "This is the backend server for the DaarutTahseen LMS project.   It is built with **Node.js**, **Express.js**, and **MongoDB**, with clean code structure and beginner-friendly setup.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "npx prisma generate",
-    "migrate": "npx prisma migrate dev --name init",
-    "generate": "npx prisma generate",
-    "seed": "node prisma/seed.js",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:restart": "docker-compose down && docker-compose up -d"
@@ -28,15 +24,19 @@
   "homepage": "https://github.com/DaarutTahseen25/dt-backend#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
-    "dotenv": "^16.5.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.4",
     "pg": "^8.16.2",
-    "resend": "^4.6.0"
+    "resend": "^4.6.0",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "@prisma/client": "^6.11.0",
+    "@prisma/client": "^6.11.1",
     "nodemon": "^3.1.10",
-    "prisma": "^6.11.0"
+    "prisma": "^6.11.1"
   }
 }
