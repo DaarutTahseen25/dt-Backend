@@ -1,6 +1,6 @@
 import AppError from "../utils/AppError.js";
 import { createHashedPassword } from "../utils/hashedPassword.js";
-import { sendOtptoMail } from "../utils/resend.js";
+import { sendOtptoMail } from "../utils/nodemailer.js";
 import { signToken } from "../utils/jwt.js";
 import User from "../models/user.model.js";
 import Otp from "../models/otp.model.js";
