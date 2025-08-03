@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: true,
-      enum: ['admin', 'teacher', 'student'],
+      enum: ['admin', 'teacher', 'student', 'admin'],
       default: 'student',
     },
     matric_number: {
