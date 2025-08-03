@@ -21,6 +21,9 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:5173",
+  "http://localhost:5174",
+  "https://daarut-tahseen25-git-dev-daaruttahseen-institution-s-projects.vercel.app",
+
 ];
 
 app.use(
