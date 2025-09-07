@@ -23,6 +23,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://daarut-tahseen25-git-dev-daaruttahseen-institution-s-projects.vercel.app",
+  "https://daarut-tahseen25-git-dev-dt-institution.vercel.app/"
 
 ];
 
