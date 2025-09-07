@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
+import levelRoutes from "./routes/level.routes.js";
+import testRoutes from "./routes/test.routes.js";
 import { app, server } from "./socket/socket.js";
 import connectDB from "./config/db.js";
 
@@ -46,6 +48,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/levels", levelRoutes);
+app.use("/api/v1/tests", testRoutes);
 
 
 
