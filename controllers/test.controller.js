@@ -38,9 +38,7 @@ export const getTest = async (req, res, next) => {
       options: question.options.map(option => ({
         text: option.text,
         _id: option._id
-      })),
-      subject: question.subject,
-      level: question.level
+      }))
     }));
 
     console.log(`✅ Retrieved ${questions.length} questions for ${userLevel.level} level`);

@@ -26,15 +26,13 @@ Retrieve test questions based on the user's registered level.
     "questions": [
       {
         "_id": "64a1b2c3d4e5f6789abcdef1",
-        "question_text": "What is the chemical symbol for water?",
+        "question_text": "Which angel brought revelations to Prophet Muhammad (PBUH)?",
         "options": [
-          { "text": "H2O", "_id": "64a1b2c3d4e5f6789abcdef2" },
-          { "text": "CO2", "_id": "64a1b2c3d4e5f6789abcdef3" },
-          { "text": "NaCl", "_id": "64a1b2c3d4e5f6789abcdef4" },
-          { "text": "O2", "_id": "64a1b2c3d4e5f6789abcdef5" }
-        ],
-        "subject": "Chemistry",
-        "level": "intermediate"
+          { "text": "Mikail (Michael)", "_id": "64a1b2c3d4e5f6789abcdef2" },
+          { "text": "Israfil (Raphael)", "_id": "64a1b2c3d4e5f6789abcdef3" },
+          { "text": "Jibril (Gabriel)", "_id": "64a1b2c3d4e5f6789abcdef4" },
+          { "text": "Azrail (Azrael)", "_id": "64a1b2c3d4e5f6789abcdef5" }
+        ]
       }
     ]
   }
@@ -58,11 +56,11 @@ Submit test answers and receive results.
   "answers": [
     {
       "question_id": "64a1b2c3d4e5f6789abcdef1",
-      "selected_option": "H2O"
+      "selected_option": "Jibril (Gabriel)"
     },
     {
       "question_id": "64a1b2c3d4e5f6789abcdef6", 
-      "selected_option": "Paris"
+      "selected_option": "Fiqh"
     }
   ]
 }
@@ -155,14 +153,13 @@ Retrieve detailed information about a specific test submission.
       {
         "question_id": {
           "_id": "64a1b2c3d4e5f6789abcdef1",
-          "question_text": "What is the chemical symbol for water?",
+          "question_text": "Which angel brought revelations to Prophet Muhammad (PBUH)?",
           "options": [
-            { "text": "H2O", "is_correct": true },
-            { "text": "CO2", "is_correct": false }
-          ],
-          "subject": "Chemistry"
+            { "text": "Jibril (Gabriel)", "is_correct": true },
+            { "text": "Mikail (Michael)", "is_correct": false }
+          ]
         },
-        "selected_option": "H2O",
+        "selected_option": "Jibril (Gabriel)",
         "is_correct": true
       }
     ],
@@ -233,9 +230,12 @@ Initialize the database with test questions for all levels.
 
 ### Question Distribution
 - **Total Questions:** 90 (30 per level)
-- **Beginner:** Basic general knowledge, simple math, elementary concepts
-- **Intermediate:** Moderate complexity across various subjects
-- **Advanced:** Complex questions requiring deep understanding
+- **Beginner:** Basic Islamic knowledge (5 pillars, prayers, Quran basics, Prophet's life)
+  - Examples: "What is the first pillar of Islam?", "How many times a day do Muslims pray?", "What is the holy book of Islam?"
+- **Intermediate:** Islamic jurisprudence, history, theology, and practices
+  - Examples: "Which angel brought revelations to Prophet Muhammad (PBUH)?", "What is the Arabic term for Islamic jurisprudence?", "How many authentic books of Hadith are there?"
+- **Advanced:** Complex Islamic philosophy, scholarship, and advanced theological concepts
+  - Examples: "What is the concept of 'Wahdatul Wujud' in Islamic philosophy?", "What is the principle of Maslaha in Islamic jurisprudence?", "Who is the author of 'Ihya Ulum al-Din'?"
 
 ### Test Configuration
 - **Questions per Test:** 30
@@ -261,8 +261,9 @@ Initialize the database with test questions for all levels.
 
 - Users must be registered for a level before accessing questions
 - Each user can only take the test **once per level**
-- Questions are randomly selected from the level's question pool
-- Correct answers are not revealed in the questions endpoint
+- Questions are randomly selected from the Islamic question pool for each level
+- Correct answers are not revealed in the questions endpoint (no `is_correct` field)
+- No `subject` or `difficulty_score` fields sent to frontend - clean MCQ format
 - Test submissions are permanent and cannot be modified
 - All timestamps are in ISO 8601 format (UTC)
 - No time tracking - simple MCQ format for Arabic institution

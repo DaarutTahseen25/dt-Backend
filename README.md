@@ -16,8 +16,8 @@ The Daarut-Taahseen API is a robust backend service designed to power modern lea
 - **User Management** - Complete CRUD operations for user accounts
 - **Profile Management** - User profile updates and password changes
 - **Admin Dashboard** - Administrative user management tools
-- **Level-Based Testing** - Multi-level assessment system (Beginner, Intermediate, Advanced)
-- **Question Bank** - 90 pre-loaded questions across all skill levels
+- **Level-Based Testing** - Multi-level Islamic assessment system (Beginner, Intermediate, Advanced)
+- **Islamic Question Bank** - 90 curated Islamic questions across all knowledge levels
 - **Test Management** - Complete test lifecycle from questions to results
 - **Analytics & Statistics** - Performance tracking and level-based insights
 
@@ -43,9 +43,9 @@ Our API is organized into logical modules. Each module has its own detailed docu
 ### Authentication & User Management
 - **[Authentication](/docs/auth.md)** - User registration, login, OTP verification, and profile management
 
-### Level-Based Testing System
-- **[Levels API](/docs/levels.md)** - Skill level registration and management
-- **[Tests API](/docs/tests.md)** - Test questions, submissions, and results
+### Islamic Testing System
+- **[Levels API](/docs/levels.md)** - Islamic knowledge level registration and management
+- **[Tests API](/docs/tests.md)** - Islamic test questions, submissions, and results
 
 ### Coming Soon
 - **Courses** - Course creation and management

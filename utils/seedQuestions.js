@@ -3,987 +3,818 @@ import Question from '../models/question.model.js';
 const questionData = {
   beginner: [
     {
-      question_text: "What is the capital of Nigeria?",
+      question_text: "What is the first pillar of Islam?",
       options: [
-        { text: "Lagos", is_correct: false },
-        { text: "Abuja", is_correct: true },
-        { text: "Kano", is_correct: false },
-        { text: "Port Harcourt", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 2
+        { text: "Shahada (Declaration of Faith)", is_correct: true },
+        { text: "Salah (Prayer)", is_correct: false },
+        { text: "Zakat (Charity)", is_correct: false },
+        { text: "Hajj (Pilgrimage)", is_correct: false }
+      ]
     },
     {
-      question_text: "What is 2 + 2?",
+      question_text: "How many times a day do Muslims pray?",
+      options: [
+        { text: "3 times", is_correct: false },
+        { text: "5 times", is_correct: true },
+        { text: "7 times", is_correct: false },
+        { text: "10 times", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the holy book of Islam?",
+      options: [
+        { text: "Bible", is_correct: false },
+        { text: "Torah", is_correct: false },
+        { text: "Quran", is_correct: true },
+        { text: "Vedas", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Arabic word for God?",
+      options: [
+        { text: "Allah", is_correct: true },
+        { text: "Yahweh", is_correct: false },
+        { text: "Brahman", is_correct: false },
+        { text: "Buddha", is_correct: false }
+      ]
+    },
+    {
+      question_text: "In which month do Muslims fast?",
+      options: [
+        { text: "Rajab", is_correct: false },
+        { text: "Ramadan", is_correct: true },
+        { text: "Shawwal", is_correct: false },
+        { text: "Muharram", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the direction Muslims face when praying?",
+      options: [
+        { text: "East", is_correct: false },
+        { text: "West", is_correct: false },
+        { text: "Towards Mecca (Qibla)", is_correct: true },
+        { text: "North", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the pilgrimage to Mecca called?",
+      options: [
+        { text: "Umrah", is_correct: false },
+        { text: "Hajj", is_correct: true },
+        { text: "Ziyarah", is_correct: false },
+        { text: "Safar", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the name of the Prophet of Islam?",
+      options: [
+        { text: "Jesus", is_correct: false },
+        { text: "Moses", is_correct: false },
+        { text: "Muhammad (PBUH)", is_correct: true },
+        { text: "Abraham", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic greeting?",
+      options: [
+        { text: "Hello", is_correct: false },
+        { text: "Assalamu Alaikum", is_correct: true },
+        { text: "Good morning", is_correct: false },
+        { text: "Namaste", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the first month of the Islamic calendar?",
+      options: [
+        { text: "Ramadan", is_correct: false },
+        { text: "Muharram", is_correct: true },
+        { text: "Rajab", is_correct: false },
+        { text: "Shawwal", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the call to prayer called?",
+      options: [
+        { text: "Adhan", is_correct: true },
+        { text: "Takbir", is_correct: false },
+        { text: "Dhikr", is_correct: false },
+        { text: "Dua", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many pillars of Islam are there?",
       options: [
         { text: "3", is_correct: false },
-        { text: "4", is_correct: true },
-        { text: "5", is_correct: false },
-        { text: "6", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 1
-    },
-    {
-      question_text: "Which of these is a primary color?",
-      options: [
-        { text: "Green", is_correct: false },
-        { text: "Orange", is_correct: false },
-        { text: "Red", is_correct: true },
-        { text: "Purple", is_correct: false }
-      ],
-      subject: "Art",
-      difficulty_score: 2
-    },
-    {
-      question_text: "How many days are there in a week?",
-      options: [
-        { text: "6", is_correct: false },
-        { text: "7", is_correct: true },
-        { text: "8", is_correct: false },
-        { text: "5", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What is the largest planet in our solar system?",
-      options: [
-        { text: "Earth", is_correct: false },
-        { text: "Mars", is_correct: false },
-        { text: "Jupiter", is_correct: true },
-        { text: "Saturn", is_correct: false }
-      ],
-      subject: "Science",
-      difficulty_score: 3
-    },
-    {
-      question_text: "Which animal is known as the king of the jungle?",
-      options: [
-        { text: "Tiger", is_correct: false },
-        { text: "Elephant", is_correct: false },
-        { text: "Lion", is_correct: true },
-        { text: "Leopard", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 2
-    },
-    {
-      question_text: "What is 10 - 5?",
-      options: [
         { text: "4", is_correct: false },
         { text: "5", is_correct: true },
-        { text: "6", is_correct: false },
-        { text: "7", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 1
+        { text: "6", is_correct: false }
+      ]
     },
     {
-      question_text: "Which of these is a fruit?",
+      question_text: "What is charity called in Islam?",
       options: [
-        { text: "Carrot", is_correct: false },
-        { text: "Potato", is_correct: false },
-        { text: "Apple", is_correct: true },
-        { text: "Onion", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 1
+        { text: "Sadaqah", is_correct: false },
+        { text: "Zakat", is_correct: true },
+        { text: "Khums", is_correct: false },
+        { text: "Fitrah", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the first letter of the alphabet?",
+      question_text: "What is the night journey of Prophet Muhammad (PBUH) called?",
       options: [
-        { text: "A", is_correct: true },
-        { text: "B", is_correct: false },
-        { text: "C", is_correct: false },
-        { text: "D", is_correct: false }
-      ],
-      subject: "English",
-      difficulty_score: 1
+        { text: "Hijrah", is_correct: false },
+        { text: "Isra and Mi'raj", is_correct: true },
+        { text: "Laylat al-Qadr", is_correct: false },
+        { text: "Mawlid", is_correct: false }
+      ]
     },
     {
-      question_text: "How many sides does a triangle have?",
+      question_text: "What is the building where Muslims worship called?",
+      options: [
+        { text: "Church", is_correct: false },
+        { text: "Mosque", is_correct: true },
+        { text: "Temple", is_correct: false },
+        { text: "Synagogue", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What does 'Islam' mean?",
+      options: [
+        { text: "Peace and submission to Allah", is_correct: true },
+        { text: "Holy war", is_correct: false },
+        { text: "Charity", is_correct: false },
+        { text: "Prayer", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic month of pilgrimage?",
+      options: [
+        { text: "Ramadan", is_correct: false },
+        { text: "Dhul Hijjah", is_correct: true },
+        { text: "Muharram", is_correct: false },
+        { text: "Rajab", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the fast-breaking meal called?",
+      options: [
+        { text: "Suhur", is_correct: false },
+        { text: "Iftar", is_correct: true },
+        { text: "Qiyam", is_correct: false },
+        { text: "Tahajjud", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the pre-dawn meal during Ramadan called?",
+      options: [
+        { text: "Iftar", is_correct: false },
+        { text: "Suhur", is_correct: true },
+        { text: "Isha", is_correct: false },
+        { text: "Fajr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many chapters (Surahs) are in the Quran?",
+      options: [
+        { text: "110", is_correct: false },
+        { text: "114", is_correct: true },
+        { text: "120", is_correct: false },
+        { text: "99", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the first chapter of the Quran called?",
+      options: [
+        { text: "Al-Baqarah", is_correct: false },
+        { text: "Al-Fatihah", is_correct: true },
+        { text: "Al-Ikhlas", is_correct: false },
+        { text: "An-Nas", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic festival celebrating the end of Ramadan?",
+      options: [
+        { text: "Eid al-Fitr", is_correct: true },
+        { text: "Eid al-Adha", is_correct: false },
+        { text: "Mawlid", is_correct: false },
+        { text: "Laylat al-Qadr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the minimum age for performing Hajj?",
+      options: [
+        { text: "Any age if able", is_correct: true },
+        { text: "18 years", is_correct: false },
+        { text: "21 years", is_correct: false },
+        { text: "16 years", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic concept of community called?",
+      options: [
+        { text: "Ummah", is_correct: true },
+        { text: "Jamaat", is_correct: false },
+        { text: "Majlis", is_correct: false },
+        { text: "Halaqah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What does 'Allahu Akbar' mean?",
+      options: [
+        { text: "Allah is Great", is_correct: true },
+        { text: "Praise be to Allah", is_correct: false },
+        { text: "Allah is merciful", is_correct: false },
+        { text: "Allah is one", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Arabic term for pilgrimage other than Hajj?",
+      options: [
+        { text: "Ziyarah", is_correct: false },
+        { text: "Umrah", is_correct: true },
+        { text: "Safar", is_correct: false },
+        { text: "Rihlah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic new year celebration called?",
+      options: [
+        { text: "Hijri New Year", is_correct: true },
+        { text: "Eid al-Fitr", is_correct: false },
+        { text: "Mawlid", is_correct: false },
+        { text: "Laylat al-Qadr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the righteous deed done in secret called?",
+      options: [
+        { text: "Sadaqah", is_correct: true },
+        { text: "Zakat", is_correct: false },
+        { text: "Khums", is_correct: false },
+        { text: "Ushr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic term for God's oneness?",
+      options: [
+        { text: "Shirk", is_correct: false },
+        { text: "Tawhid", is_correct: true },
+        { text: "Bid'ah", is_correct: false },
+        { text: "Kufr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the migration of Prophet Muhammad (PBUH) from Mecca to Medina called?",
+      options: [
+        { text: "Hijrah", is_correct: true },
+        { text: "Isra", is_correct: false },
+        { text: "Mi'raj", is_correct: false },
+        { text: "Safar", is_correct: false }
+      ]
+    }
+  ],
+  intermediate: [
+    {
+      question_text: "How many times is the word 'Allah' mentioned in the Quran?",
+      options: [
+        { text: "2698 times", is_correct: true },
+        { text: "2500 times", is_correct: false },
+        { text: "3000 times", is_correct: false },
+        { text: "2800 times", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the longest Surah in the Quran?",
+      options: [
+        { text: "Al-Fatihah", is_correct: false },
+        { text: "Al-Baqarah", is_correct: true },
+        { text: "Al-Imran", is_correct: false },
+        { text: "An-Nisa", is_correct: false }
+      ]
+    },
+    {
+      question_text: "Which angel brought revelations to Prophet Muhammad (PBUH)?",
+      options: [
+        { text: "Mikail (Michael)", is_correct: false },
+        { text: "Israfil (Raphael)", is_correct: false },
+        { text: "Jibril (Gabriel)", is_correct: true },
+        { text: "Azrail (Azrael)", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the night of power/decree called?",
+      options: [
+        { text: "Laylat al-Mi'raj", is_correct: false },
+        { text: "Laylat al-Qadr", is_correct: true },
+        { text: "Laylat al-Isra", is_correct: false },
+        { text: "Laylat al-Bara'at", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many Rakats are in the Fajr prayer?",
+      options: [
+        { text: "2 Rakats", is_correct: true },
+        { text: "3 Rakats", is_correct: false },
+        { text: "4 Rakats", is_correct: false },
+        { text: "1 Rakat", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the last revealed verse of the Quran?",
+      options: [
+        { text: "Ayat al-Kursi", is_correct: false },
+        { text: "The verse about debt in Al-Baqarah", is_correct: true },
+        { text: "The verse about perfection of religion", is_correct: false },
+        { text: "The first verse of Al-Fatihah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Arabic term for Islamic jurisprudence?",
+      options: [
+        { text: "Fiqh", is_correct: true },
+        { text: "Hadith", is_correct: false },
+        { text: "Tafsir", is_correct: false },
+        { text: "Sunnah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many years did it take for the Quran to be revealed?",
+      options: [
+        { text: "20 years", is_correct: false },
+        { text: "23 years", is_correct: true },
+        { text: "25 years", is_correct: false },
+        { text: "30 years", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the cave where Prophet Muhammad (PBUH) received the first revelation?",
+      options: [
+        { text: "Cave of Thawr", is_correct: false },
+        { text: "Cave of Hira", is_correct: true },
+        { text: "Cave of Uhud", is_correct: false },
+        { text: "Cave of Badr", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic month of fasting?",
+      options: [
+        { text: "Sha'ban", is_correct: false },
+        { text: "Ramadan", is_correct: true },
+        { text: "Dhul Qi'dah", is_correct: false },
+        { text: "Rajab", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many authentic books of Hadith are there?",
+      options: [
+        { text: "4", is_correct: false },
+        { text: "6", is_correct: true },
+        { text: "8", is_correct: false },
+        { text: "10", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic term for consensus of scholars?",
+      options: [
+        { text: "Ijma", is_correct: true },
+        { text: "Qiyas", is_correct: false },
+        { text: "Ijtihad", is_correct: false },
+        { text: "Istihsan", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the battle that marked the first Muslim victory?",
+      options: [
+        { text: "Battle of Uhud", is_correct: false },
+        { text: "Battle of Badr", is_correct: true },
+        { text: "Battle of Khandaq", is_correct: false },
+        { text: "Battle of Hunayn", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic term for analogy in jurisprudence?",
+      options: [
+        { text: "Ijma", is_correct: false },
+        { text: "Qiyas", is_correct: true },
+        { text: "Istihsan", is_correct: false },
+        { text: "Ijtihad", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the minimum amount of wealth to pay Zakat?",
+      options: [
+        { text: "Nisab", is_correct: true },
+        { text: "Hawl", is_correct: false },
+        { text: "Fidyah", is_correct: false },
+        { text: "Kaffarah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many names of Allah (Asma ul Husna) are there?",
+      options: [
+        { text: "95", is_correct: false },
+        { text: "99", is_correct: true },
+        { text: "100", is_correct: false },
+        { text: "101", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic calendar based on?",
+      options: [
+        { text: "Solar year", is_correct: false },
+        { text: "Lunar year", is_correct: true },
+        { text: "Solar-lunar combination", is_correct: false },
+        { text: "Star movements", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the first university in the world?",
+      options: [
+        { text: "Al-Azhar University", is_correct: false },
+        { text: "University of Al Quaraouiyine", is_correct: true },
+        { text: "House of Wisdom", is_correct: false },
+        { text: "Bayt al-Hikmah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the term for the community prayer on Friday?",
+      options: [
+        { text: "Salat al-Eid", is_correct: false },
+        { text: "Salat al-Jumu'ah", is_correct: true },
+        { text: "Salat al-Tarawih", is_correct: false },
+        { text: "Salat al-Janazah", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the punishment for theft in Islamic law?",
+      options: [
+        { text: "Imprisonment", is_correct: false },
+        { text: "Amputation of hand", is_correct: true },
+        { text: "Fine", is_correct: false },
+        { text: "Public humiliation", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Islamic term for the prophetic traditions?",
+      options: [
+        { text: "Quran", is_correct: false },
+        { text: "Hadith", is_correct: true },
+        { text: "Fiqh", is_correct: false },
+        { text: "Tafsir", is_correct: false }
+      ]
+    },
+    {
+      question_text: "Which wife of the Prophet was known as 'Mother of the Believers'?",
+      options: [
+        { text: "Khadijah (RA)", is_correct: false },
+        { text: "All of them", is_correct: true },
+        { text: "Aisha (RA)", is_correct: false },
+        { text: "Hafsa (RA)", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the Arabic term for Islamic theology?",
+      options: [
+        { text: "Fiqh", is_correct: false },
+        { text: "Aqidah", is_correct: true },
+        { text: "Tafsir", is_correct: false },
+        { text: "Hadith", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the term for ritual purification before prayer?",
+      options: [
+        { text: "Ghusl", is_correct: false },
+        { text: "Wudu", is_correct: true },
+        { text: "Tayammum", is_correct: false },
+        { text: "Istinja", is_correct: false }
+      ]
+    },
+    {
+      question_text: "How many categories of Tawhid are there?",
       options: [
         { text: "2", is_correct: false },
         { text: "3", is_correct: true },
         { text: "4", is_correct: false },
         { text: "5", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 1
+      ]
     },
     {
-      question_text: "Which of these is a mammal?",
+      question_text: "What is the Islamic term for innovation in religion?",
       options: [
-        { text: "Fish", is_correct: false },
-        { text: "Bird", is_correct: false },
-        { text: "Dog", is_correct: true },
-        { text: "Snake", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 2
+        { text: "Sunnah", is_correct: false },
+        { text: "Bid'ah", is_correct: true },
+        { text: "Ijma", is_correct: false },
+        { text: "Qiyas", is_correct: false }
+      ]
     },
     {
-      question_text: "What do we use to see?",
+      question_text: "What is the term for the Islamic creed?",
       options: [
-        { text: "Ears", is_correct: false },
-        { text: "Eyes", is_correct: true },
-        { text: "Nose", is_correct: false },
-        { text: "Mouth", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 1
+        { text: "Shahada", is_correct: true },
+        { text: "Takbir", is_correct: false },
+        { text: "Tahmid", is_correct: false },
+        { text: "Tahlil", is_correct: false }
+      ]
     },
     {
-      question_text: "What is 3 × 3?",
+      question_text: "What is the term for the annual pilgrimage to Mecca?",
       options: [
-        { text: "6", is_correct: false },
-        { text: "9", is_correct: true },
-        { text: "12", is_correct: false },
-        { text: "15", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 2
+        { text: "Umrah", is_correct: false },
+        { text: "Hajj", is_correct: true },
+        { text: "Ziyarah", is_correct: false },
+        { text: "Tawaf", is_correct: false }
+      ]
     },
     {
-      question_text: "Which season comes after winter?",
+      question_text: "What is the Arabic term for the Islamic way of life?",
       options: [
-        { text: "Summer", is_correct: false },
-        { text: "Fall", is_correct: false },
-        { text: "Spring", is_correct: true },
-        { text: "Autumn", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 2
+        { text: "Deen", is_correct: true },
+        { text: "Iman", is_correct: false },
+        { text: "Islam", is_correct: false },
+        { text: "Ihsan", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the color of the sun?",
+      question_text: "How many times should a Muslim perform Hajj in their lifetime?",
       options: [
-        { text: "Blue", is_correct: false },
-        { text: "Green", is_correct: false },
-        { text: "Yellow", is_correct: true },
-        { text: "Red", is_correct: false }
-      ],
-      subject: "Science",
-      difficulty_score: 1
-    },
-    {
-      question_text: "How many fingers do you have on one hand?",
-      options: [
-        { text: "4", is_correct: false },
-        { text: "5", is_correct: true },
-        { text: "6", is_correct: false },
-        { text: "3", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What is 15 + 10?",
-      options: [
-        { text: "20", is_correct: false },
-        { text: "25", is_correct: true },
-        { text: "30", is_correct: false },
-        { text: "35", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 2
-    },
-    {
-      question_text: "Which of these is a vegetable?",
-      options: [
-        { text: "Orange", is_correct: false },
-        { text: "Banana", is_correct: false },
-        { text: "Carrot", is_correct: true },
-        { text: "Apple", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What do bees make?",
-      options: [
-        { text: "Milk", is_correct: false },
-        { text: "Honey", is_correct: true },
-        { text: "Bread", is_correct: false },
-        { text: "Cheese", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 2
-    },
-    {
-      question_text: "How many months are there in a year?",
-      options: [
-        { text: "10", is_correct: false },
-        { text: "11", is_correct: false },
-        { text: "12", is_correct: true },
-        { text: "13", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What is the opposite of hot?",
-      options: [
-        { text: "Warm", is_correct: false },
-        { text: "Cool", is_correct: false },
-        { text: "Cold", is_correct: true },
-        { text: "Mild", is_correct: false }
-      ],
-      subject: "English",
-      difficulty_score: 1
-    },
-    {
-      question_text: "Which of these animals can fly?",
-      options: [
-        { text: "Dog", is_correct: false },
-        { text: "Cat", is_correct: false },
-        { text: "Bird", is_correct: true },
-        { text: "Fish", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What is 20 ÷ 4?",
-      options: [
-        { text: "4", is_correct: false },
-        { text: "5", is_correct: true },
-        { text: "6", is_correct: false },
-        { text: "8", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 2
-    },
-    {
-      question_text: "Which of these is used to write?",
-      options: [
-        { text: "Spoon", is_correct: false },
-        { text: "Pen", is_correct: true },
-        { text: "Plate", is_correct: false },
-        { text: "Cup", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What comes after Monday?",
-      options: [
-        { text: "Sunday", is_correct: false },
-        { text: "Tuesday", is_correct: true },
-        { text: "Wednesday", is_correct: false },
-        { text: "Friday", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "How many wheels does a bicycle have?",
-      options: [
-        { text: "1", is_correct: false },
-        { text: "2", is_correct: true },
-        { text: "3", is_correct: false },
-        { text: "4", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "What is the first month of the year?",
-      options: [
-        { text: "December", is_correct: false },
-        { text: "January", is_correct: true },
-        { text: "March", is_correct: false },
-        { text: "April", is_correct: false }
-      ],
-      subject: "General Knowledge",
-      difficulty_score: 1
-    },
-    {
-      question_text: "Which of these is a musical instrument?",
-      options: [
-        { text: "Table", is_correct: false },
-        { text: "Chair", is_correct: false },
-        { text: "Piano", is_correct: true },
-        { text: "Book", is_correct: false }
-      ],
-      subject: "Music",
-      difficulty_score: 2
-    },
-    {
-      question_text: "What is 100 - 50?",
-      options: [
-        { text: "40", is_correct: false },
-        { text: "50", is_correct: true },
-        { text: "60", is_correct: false },
-        { text: "70", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 2
-    },
-    {
-      question_text: "Which of these is the smallest?",
-      options: [
-        { text: "Elephant", is_correct: false },
-        { text: "Mouse", is_correct: true },
-        { text: "Dog", is_correct: false },
-        { text: "Cat", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 2
-    }
-  ],
-  intermediate: [
-    {
-      question_text: "What is the chemical symbol for water?",
-      options: [
-        { text: "H2O", is_correct: true },
-        { text: "CO2", is_correct: false },
-        { text: "NaCl", is_correct: false },
-        { text: "O2", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 4
-    },
-    {
-      question_text: "Who wrote the novel 'Things Fall Apart'?",
-      options: [
-        { text: "Wole Soyinka", is_correct: false },
-        { text: "Chinua Achebe", is_correct: true },
-        { text: "Chimamanda Adichie", is_correct: false },
-        { text: "Ben Okri", is_correct: false }
-      ],
-      subject: "Literature",
-      difficulty_score: 5
-    },
-    {
-      question_text: "What is the square root of 144?",
-      options: [
-        { text: "10", is_correct: false },
-        { text: "11", is_correct: false },
-        { text: "12", is_correct: true },
-        { text: "13", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 4
-    },
-    {
-      question_text: "Which continent is known as the 'Dark Continent'?",
-      options: [
-        { text: "Asia", is_correct: false },
-        { text: "Europe", is_correct: false },
-        { text: "Africa", is_correct: true },
-        { text: "South America", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is the process by which plants make food called?",
-      options: [
-        { text: "Respiration", is_correct: false },
-        { text: "Photosynthesis", is_correct: true },
-        { text: "Digestion", is_correct: false },
-        { text: "Absorption", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 4
-    },
-    {
-      question_text: "In which year did Nigeria gain independence?",
-      options: [
-        { text: "1958", is_correct: false },
-        { text: "1960", is_correct: true },
-        { text: "1962", is_correct: false },
-        { text: "1963", is_correct: false }
-      ],
-      subject: "History",
-      difficulty_score: 5
-    },
-    {
-      question_text: "What is 25% of 200?",
-      options: [
-        { text: "40", is_correct: false },
-        { text: "50", is_correct: true },
-        { text: "60", is_correct: false },
-        { text: "75", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 4
-    },
-    {
-      question_text: "Which gas makes up most of Earth's atmosphere?",
-      options: [
-        { text: "Oxygen", is_correct: false },
-        { text: "Carbon Dioxide", is_correct: false },
-        { text: "Nitrogen", is_correct: true },
-        { text: "Helium", is_correct: false }
-      ],
-      subject: "Science",
-      difficulty_score: 5
-    },
-    {
-      question_text: "What is the past tense of 'go'?",
-      options: [
-        { text: "Goes", is_correct: false },
-        { text: "Gone", is_correct: false },
-        { text: "Went", is_correct: true },
-        { text: "Going", is_correct: false }
-      ],
-      subject: "English",
-      difficulty_score: 3
-    },
-    {
-      question_text: "Which planet is closest to the Sun?",
-      options: [
-        { text: "Venus", is_correct: false },
-        { text: "Earth", is_correct: false },
-        { text: "Mercury", is_correct: true },
-        { text: "Mars", is_correct: false }
-      ],
-      subject: "Astronomy",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is the capital of France?",
-      options: [
-        { text: "London", is_correct: false },
-        { text: "Berlin", is_correct: false },
-        { text: "Paris", is_correct: true },
-        { text: "Madrid", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 3
-    },
-    {
-      question_text: "What is 7 × 8?",
-      options: [
-        { text: "54", is_correct: false },
-        { text: "56", is_correct: true },
-        { text: "58", is_correct: false },
-        { text: "63", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 3
-    },
-    {
-      question_text: "Which organ pumps blood through the human body?",
-      options: [
-        { text: "Lungs", is_correct: false },
-        { text: "Liver", is_correct: false },
-        { text: "Heart", is_correct: true },
-        { text: "Kidney", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 3
-    },
-    {
-      question_text: "What is the longest river in the world?",
-      options: [
-        { text: "Amazon River", is_correct: false },
-        { text: "Nile River", is_correct: true },
-        { text: "Mississippi River", is_correct: false },
-        { text: "Yangtze River", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 5
-    },
-    {
-      question_text: "What is the formula for the area of a circle?",
-      options: [
-        { text: "2πr", is_correct: false },
-        { text: "πr²", is_correct: true },
-        { text: "πr", is_correct: false },
-        { text: "2πr²", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 5
-    },
-    {
-      question_text: "Which element has the chemical symbol 'Au'?",
-      options: [
-        { text: "Silver", is_correct: false },
-        { text: "Gold", is_correct: true },
-        { text: "Aluminum", is_correct: false },
-        { text: "Iron", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 5
-    },
-    {
-      question_text: "Who invented the telephone?",
-      options: [
-        { text: "Thomas Edison", is_correct: false },
-        { text: "Alexander Graham Bell", is_correct: true },
-        { text: "Nikola Tesla", is_correct: false },
-        { text: "Benjamin Franklin", is_correct: false }
-      ],
-      subject: "History",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is 144 ÷ 12?",
-      options: [
-        { text: "10", is_correct: false },
-        { text: "11", is_correct: false },
-        { text: "12", is_correct: true },
-        { text: "13", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 3
-    },
-    {
-      question_text: "Which is the largest ocean on Earth?",
-      options: [
-        { text: "Atlantic Ocean", is_correct: false },
-        { text: "Indian Ocean", is_correct: false },
-        { text: "Pacific Ocean", is_correct: true },
-        { text: "Arctic Ocean", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is the plural of 'child'?",
-      options: [
-        { text: "Childs", is_correct: false },
-        { text: "Children", is_correct: true },
-        { text: "Childes", is_correct: false },
-        { text: "Child", is_correct: false }
-      ],
-      subject: "English",
-      difficulty_score: 3
-    },
-    {
-      question_text: "How many bones are there in an adult human body?",
-      options: [
-        { text: "204", is_correct: false },
-        { text: "206", is_correct: true },
-        { text: "208", is_correct: false },
-        { text: "210", is_correct: false }
-      ],
-      subject: "Biology",
-      difficulty_score: 5
-    },
-    {
-      question_text: "What is the freezing point of water in Celsius?",
-      options: [
-        { text: "32°", is_correct: false },
-        { text: "0°", is_correct: true },
-        { text: "100°", is_correct: false },
-        { text: "212°", is_correct: false }
-      ],
-      subject: "Science",
-      difficulty_score: 3
-    },
-    {
-      question_text: "Which country is known as the 'Land of the Rising Sun'?",
-      options: [
-        { text: "China", is_correct: false },
-        { text: "Japan", is_correct: true },
-        { text: "Korea", is_correct: false },
-        { text: "Thailand", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is 15² (15 squared)?",
-      options: [
-        { text: "215", is_correct: false },
-        { text: "225", is_correct: true },
-        { text: "235", is_correct: false },
-        { text: "245", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 4
-    },
-    {
-      question_text: "Which vitamin is produced when skin is exposed to sunlight?",
-      options: [
-        { text: "Vitamin A", is_correct: false },
-        { text: "Vitamin B", is_correct: false },
-        { text: "Vitamin C", is_correct: false },
-        { text: "Vitamin D", is_correct: true }
-      ],
-      subject: "Biology",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is the speed of light?",
-      options: [
-        { text: "299,792,458 m/s", is_correct: true },
-        { text: "300,000,000 m/s", is_correct: false },
-        { text: "186,000 m/s", is_correct: false },
-        { text: "150,000,000 m/s", is_correct: false }
-      ],
-      subject: "Physics",
-      difficulty_score: 6
-    },
-    {
-      question_text: "Who painted the Mona Lisa?",
-      options: [
-        { text: "Vincent van Gogh", is_correct: false },
-        { text: "Leonardo da Vinci", is_correct: true },
-        { text: "Pablo Picasso", is_correct: false },
-        { text: "Michelangelo", is_correct: false }
-      ],
-      subject: "Art",
-      difficulty_score: 4
-    },
-    {
-      question_text: "What is the smallest unit of matter?",
-      options: [
-        { text: "Molecule", is_correct: false },
-        { text: "Atom", is_correct: true },
-        { text: "Cell", is_correct: false },
-        { text: "Electron", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 4
-    },
-    {
-      question_text: "In which continent is the Sahara Desert located?",
-      options: [
-        { text: "Asia", is_correct: false },
-        { text: "Australia", is_correct: false },
-        { text: "Africa", is_correct: true },
-        { text: "North America", is_correct: false }
-      ],
-      subject: "Geography",
-      difficulty_score: 3
-    },
-    {
-      question_text: "What is 0.5 as a fraction?",
-      options: [
-        { text: "1/3", is_correct: false },
-        { text: "1/2", is_correct: true },
-        { text: "1/4", is_correct: false },
-        { text: "2/3", is_correct: false }
-      ],
-      subject: "Mathematics",
-      difficulty_score: 3
+        { text: "Once if able", is_correct: true },
+        { text: "Three times", is_correct: false },
+        { text: "Five times", is_correct: false },
+        { text: "Seven times", is_correct: false }
+      ]
     }
   ],
   advanced: [
     {
-      question_text: "What is the derivative of x³?",
+      question_text: "What is the concept of 'Wahdatul Wujud' in Islamic philosophy?",
       options: [
-        { text: "x²", is_correct: false },
-        { text: "3x²", is_correct: true },
-        { text: "3x³", is_correct: false },
-        { text: "x⁴/4", is_correct: false }
-      ],
-      subject: "Calculus",
-      difficulty_score: 7
+        { text: "Unity of Being", is_correct: true },
+        { text: "Unity of Action", is_correct: false },
+        { text: "Unity of Attributes", is_correct: false },
+        { text: "Unity of Creation", is_correct: false }
+      ]
     },
     {
-      question_text: "Which of the following is a greenhouse gas?",
+      question_text: "Who is the author of 'Ihya Ulum al-Din'?",
       options: [
-        { text: "Nitrogen", is_correct: false },
-        { text: "Oxygen", is_correct: false },
-        { text: "Carbon Dioxide", is_correct: true },
-        { text: "Argon", is_correct: false }
-      ],
-      subject: "Environmental Science",
-      difficulty_score: 6
+        { text: "Ibn Sina", is_correct: false },
+        { text: "Al-Ghazali", is_correct: true },
+        { text: "Ibn Rushd", is_correct: false },
+        { text: "Al-Farabi", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the time complexity of binary search?",
+      question_text: "What is the principle of Maslaha in Islamic jurisprudence?",
       options: [
-        { text: "O(n)", is_correct: false },
-        { text: "O(log n)", is_correct: true },
-        { text: "O(n²)", is_correct: false },
-        { text: "O(1)", is_correct: false }
-      ],
-      subject: "Computer Science",
-      difficulty_score: 8
+        { text: "Public Interest", is_correct: true },
+        { text: "Analogical reasoning", is_correct: false },
+        { text: "Consensus", is_correct: false },
+        { text: "Preference", is_correct: false }
+      ]
     },
     {
-      question_text: "Who developed the theory of relativity?",
+      question_text: "What is the highest level of certainty (Yaqin) in Islamic epistemology?",
       options: [
-        { text: "Isaac Newton", is_correct: false },
-        { text: "Albert Einstein", is_correct: true },
-        { text: "Galileo Galilei", is_correct: false },
-        { text: "Stephen Hawking", is_correct: false }
-      ],
-      subject: "Physics",
-      difficulty_score: 6
+        { text: "Ilm al-Yaqin", is_correct: false },
+        { text: "Ayn al-Yaqin", is_correct: false },
+        { text: "Haqq al-Yaqin", is_correct: true },
+        { text: "Nur al-Yaqin", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the molecular formula of glucose?",
+      question_text: "What is the concept of 'Tajdid' in Islamic thought?",
       options: [
-        { text: "C6H12O6", is_correct: true },
-        { text: "C6H6O6", is_correct: false },
-        { text: "C12H22O11", is_correct: false },
-        { text: "C2H6O", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 7
+        { text: "Religious Renewal", is_correct: true },
+        { text: "Religious Innovation", is_correct: false },
+        { text: "Religious Orthodoxy", is_correct: false },
+        { text: "Religious Mysticism", is_correct: false }
+      ]
     },
     {
-      question_text: "Which economic principle states that as price increases, quantity demanded decreases?",
+      question_text: "Who established the four sources of Islamic law in order of priority?",
       options: [
-        { text: "Law of Supply", is_correct: false },
-        { text: "Law of Demand", is_correct: true },
-        { text: "Law of Diminishing Returns", is_correct: false },
-        { text: "Pareto Principle", is_correct: false }
-      ],
-      subject: "Economics",
-      difficulty_score: 6
+        { text: "Imam Abu Hanifa", is_correct: false },
+        { text: "Imam Shafi'i", is_correct: true },
+        { text: "Imam Malik", is_correct: false },
+        { text: "Imam Ahmad", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the integral of 1/x?",
+      question_text: "What is the doctrine of 'Istikhārah' in Islamic practice?",
       options: [
-        { text: "x²/2", is_correct: false },
-        { text: "ln|x| + C", is_correct: true },
-        { text: "1/x²", is_correct: false },
-        { text: "x + C", is_correct: false }
-      ],
-      subject: "Calculus",
-      difficulty_score: 8
+        { text: "Seeking Allah's guidance", is_correct: true },
+        { text: "Seeking forgiveness", is_correct: false },
+        { text: "Seeking knowledge", is_correct: false },
+        { text: "Seeking wealth", is_correct: false }
+      ]
     },
     {
-      question_text: "Which programming paradigm does Haskell primarily follow?",
+      question_text: "What is the term for the esoteric interpretation of Quran?",
       options: [
-        { text: "Object-Oriented", is_correct: false },
-        { text: "Procedural", is_correct: false },
-        { text: "Functional", is_correct: true },
-        { text: "Declarative", is_correct: false }
-      ],
-      subject: "Computer Science",
-      difficulty_score: 7
+        { text: "Tafsir", is_correct: false },
+        { text: "Ta'wil", is_correct: true },
+        { text: "Tadabbur", is_correct: false },
+        { text: "Tartil", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the pH of pure water at 25°C?",
+      question_text: "What is the principle of 'La Darar wa la Dirar' in Islamic law?",
       options: [
-        { text: "6", is_correct: false },
-        { text: "7", is_correct: true },
-        { text: "8", is_correct: false },
-        { text: "14", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 6
+        { text: "No harm and no reciprocal harm", is_correct: true },
+        { text: "No compulsion in religion", is_correct: false },
+        { text: "No excess in religion", is_correct: false },
+        { text: "No innovation in worship", is_correct: false }
+      ]
     },
     {
-      question_text: "Which philosopher wrote 'Thus Spoke Zarathustra'?",
+      question_text: "What is the concept of 'Barzakh' in Islamic eschatology?",
       options: [
-        { text: "Immanuel Kant", is_correct: false },
-        { text: "Friedrich Nietzsche", is_correct: true },
-        { text: "Jean-Paul Sartre", is_correct: false },
-        { text: "Søren Kierkegaard", is_correct: false }
-      ],
-      subject: "Philosophy",
-      difficulty_score: 8
+        { text: "The afterlife", is_correct: false },
+        { text: "The intermediate realm", is_correct: true },
+        { text: "Paradise", is_correct: false },
+        { text: "Hell", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the solution to the equation x² - 5x + 6 = 0?",
+      question_text: "Who is considered the 'Seal of Saints' (Khatam al-Awliya)?",
       options: [
-        { text: "x = 1, 6", is_correct: false },
-        { text: "x = 2, 3", is_correct: true },
-        { text: "x = -2, -3", is_correct: false },
-        { text: "x = 5, 6", is_correct: false }
-      ],
-      subject: "Algebra",
-      difficulty_score: 7
+        { text: "Ibn Arabi", is_correct: true },
+        { text: "Al-Ghazali", is_correct: false },
+        { text: "Rumi", is_correct: false },
+        { text: "Al-Hallaj", is_correct: false }
+      ]
     },
     {
-      question_text: "Which organelle is known as the 'powerhouse of the cell'?",
+      question_text: "What is the highest stage in the Sufi path according to most orders?",
       options: [
-        { text: "Nucleus", is_correct: false },
-        { text: "Ribosome", is_correct: false },
-        { text: "Mitochondria", is_correct: true },
-        { text: "Endoplasmic Reticulum", is_correct: false }
-      ],
-      subject: "Cell Biology",
-      difficulty_score: 6
+        { text: "Fana", is_correct: false },
+        { text: "Baqa", is_correct: true },
+        { text: "Hal", is_correct: false },
+        { text: "Maqam", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the Big O notation for merge sort?",
+      question_text: "What is the principle of 'Sadd al-Dhara'i' in Islamic jurisprudence?",
       options: [
-        { text: "O(n)", is_correct: false },
-        { text: "O(n log n)", is_correct: true },
-        { text: "O(n²)", is_correct: false },
-        { text: "O(2ⁿ)", is_correct: false }
-      ],
-      subject: "Computer Science",
-      difficulty_score: 8
+        { text: "Blocking the means to evil", is_correct: true },
+        { text: "Opening paths to good", is_correct: false },
+        { text: "Preferential treatment", is_correct: false },
+        { text: "Gradual application", is_correct: false }
+      ]
     },
     {
-      question_text: "Which hormone regulates blood sugar levels?",
+      question_text: "What is the concept of 'Fitrah' in Islamic anthropology?",
       options: [
-        { text: "Adrenaline", is_correct: false },
-        { text: "Insulin", is_correct: true },
-        { text: "Cortisol", is_correct: false },
-        { text: "Thyroxine", is_correct: false }
-      ],
-      subject: "Endocrinology",
-      difficulty_score: 7
+        { text: "Human nature/primordial state", is_correct: true },
+        { text: "Divine attributes", is_correct: false },
+        { text: "Prophetic tradition", is_correct: false },
+        { text: "Natural law", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the limit of (sin x)/x as x approaches 0?",
+      question_text: "What is the term 'Mukashafah' in Sufi terminology?",
       options: [
-        { text: "0", is_correct: false },
-        { text: "1", is_correct: true },
-        { text: "∞", is_correct: false },
-        { text: "undefined", is_correct: false }
-      ],
-      subject: "Calculus",
-      difficulty_score: 8
+        { text: "Spiritual struggle", is_correct: false },
+        { text: "Divine unveiling", is_correct: true },
+        { text: "Ritual prayer", is_correct: false },
+        { text: "Sacred dance", is_correct: false }
+      ]
     },
     {
-      question_text: "Which design pattern ensures a class has only one instance?",
+      question_text: "What is the doctrine of 'Jabr' in Islamic theology?",
       options: [
-        { text: "Factory", is_correct: false },
-        { text: "Observer", is_correct: false },
-        { text: "Singleton", is_correct: true },
-        { text: "Strategy", is_correct: false }
-      ],
-      subject: "Software Engineering",
-      difficulty_score: 7
+        { text: "Predestination", is_correct: true },
+        { text: "Free will", is_correct: false },
+        { text: "Divine justice", is_correct: false },
+        { text: "Divine mercy", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the electron configuration of Carbon?",
+      question_text: "What is the concept of 'Hikmah' in Islamic philosophy?",
       options: [
-        { text: "1s² 2s² 2p⁶", is_correct: false },
-        { text: "1s² 2s² 2p²", is_correct: true },
-        { text: "1s² 2s² 2p⁴", is_correct: false },
-        { text: "1s² 2s⁴", is_correct: false }
-      ],
-      subject: "Chemistry",
-      difficulty_score: 7
+        { text: "Wisdom", is_correct: true },
+        { text: "Knowledge", is_correct: false },
+        { text: "Understanding", is_correct: false },
+        { text: "Intelligence", is_correct: false }
+      ]
     },
     {
-      question_text: "Which statistical measure is most affected by outliers?",
+      question_text: "What is the term for the special knowledge given to Prophets?",
       options: [
-        { text: "Median", is_correct: false },
-        { text: "Mode", is_correct: false },
-        { text: "Mean", is_correct: true },
-        { text: "Range", is_correct: false }
-      ],
-      subject: "Statistics",
-      difficulty_score: 6
+        { text: "Ilm al-Ghayb", is_correct: false },
+        { text: "Wahy", is_correct: true },
+        { text: "Kashf", is_correct: false },
+        { text: "Ilham", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the name of the process by which DNA is copied?",
+      question_text: "What is the principle of 'Istishab' in Islamic jurisprudence?",
       options: [
-        { text: "Translation", is_correct: false },
-        { text: "Transcription", is_correct: false },
-        { text: "Replication", is_correct: true },
-        { text: "Transformation", is_correct: false }
-      ],
-      subject: "Molecular Biology",
-      difficulty_score: 7
+        { text: "Presumption of continuity", is_correct: true },
+        { text: "Presumption of innocence", is_correct: false },
+        { text: "Presumption of validity", is_correct: false },
+        { text: "Presumption of priority", is_correct: false }
+      ]
     },
     {
-      question_text: "Which sorting algorithm has the best average-case time complexity?",
+      question_text: "What is the concept of 'Sirr' in Sufi psychology?",
       options: [
-        { text: "Bubble Sort", is_correct: false },
-        { text: "Quick Sort", is_correct: true },
-        { text: "Selection Sort", is_correct: false },
-        { text: "Insertion Sort", is_correct: false }
-      ],
-      subject: "Computer Science",
-      difficulty_score: 8
+        { text: "The secret/innermost heart", is_correct: true },
+        { text: "The rational soul", is_correct: false },
+        { text: "The animal soul", is_correct: false },
+        { text: "The spiritual heart", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the standard form of a quadratic equation?",
+      question_text: "What is the doctrine of 'Hulul' in Islamic mysticism?",
       options: [
-        { text: "y = mx + b", is_correct: false },
-        { text: "ax² + bx + c = 0", is_correct: true },
-        { text: "y = ax² + b", is_correct: false },
-        { text: "x² + y² = r²", is_correct: false }
-      ],
-      subject: "Algebra",
-      difficulty_score: 6
+        { text: "Divine indwelling", is_correct: true },
+        { text: "Divine transcendence", is_correct: false },
+        { text: "Divine immanence", is_correct: false },
+        { text: "Divine unity", is_correct: false }
+      ]
     },
     {
-      question_text: "Which principle states that energy cannot be created or destroyed?",
+      question_text: "What is the term 'Mujaddid' in Islamic tradition?",
       options: [
-        { text: "First Law of Thermodynamics", is_correct: true },
-        { text: "Second Law of Thermodynamics", is_correct: false },
-        { text: "Newton's First Law", is_correct: false },
-        { text: "Law of Conservation of Momentum", is_correct: false }
-      ],
-      subject: "Physics",
-      difficulty_score: 7
+        { text: "Renewer of faith", is_correct: true },
+        { text: "Scholar of law", is_correct: false },
+        { text: "Mystic saint", is_correct: false },
+        { text: "Political leader", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the space complexity of depth-first search?",
+      question_text: "What is the concept of 'Wajib al-Wujud' in Islamic philosophy?",
       options: [
-        { text: "O(1)", is_correct: false },
-        { text: "O(V)", is_correct: true },
-        { text: "O(V + E)", is_correct: false },
-        { text: "O(V²)", is_correct: false }
-      ],
-      subject: "Computer Science",
-      difficulty_score: 8
+        { text: "Necessary Being (God)", is_correct: true },
+        { text: "Possible being", is_correct: false },
+        { text: "Impossible being", is_correct: false },
+        { text: "Contingent being", is_correct: false }
+      ]
     },
     {
-      question_text: "Which neurotransmitter is associated with Parkinson's disease?",
+      question_text: "What is the principle of 'Al-Ashbah wa'l-Naza'ir' in Islamic law?",
       options: [
-        { text: "Serotonin", is_correct: false },
-        { text: "Dopamine", is_correct: true },
-        { text: "Acetylcholine", is_correct: false },
-        { text: "GABA", is_correct: false }
-      ],
-      subject: "Neuroscience",
-      difficulty_score: 8
+        { text: "Legal similarities and parallels", is_correct: true },
+        { text: "Legal differences", is_correct: false },
+        { text: "Legal priorities", is_correct: false },
+        { text: "Legal preferences", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the determinant of a 2x2 matrix [[a,b],[c,d]]?",
+      question_text: "What is the term 'Qutb' in Sufi hierarchy?",
       options: [
-        { text: "a + d - b - c", is_correct: false },
-        { text: "ad - bc", is_correct: true },
-        { text: "ac - bd", is_correct: false },
-        { text: "ab - cd", is_correct: false }
-      ],
-      subject: "Linear Algebra",
-      difficulty_score: 7
+        { text: "The spiritual axis/pole", is_correct: true },
+        { text: "The ascetic", is_correct: false },
+        { text: "The teacher", is_correct: false },
+        { text: "The disciple", is_correct: false }
+      ]
     },
     {
-      question_text: "Which database concept ensures that a transaction is treated as a single unit?",
+      question_text: "What is the concept of 'Tawakkul' in Islamic spirituality?",
       options: [
-        { text: "Consistency", is_correct: false },
-        { text: "Isolation", is_correct: false },
-        { text: "Durability", is_correct: false },
-        { text: "Atomicity", is_correct: true }
-      ],
-      subject: "Database Systems",
-      difficulty_score: 7
+        { text: "Trust in Allah", is_correct: true },
+        { text: "Fear of Allah", is_correct: false },
+        { text: "Love of Allah", is_correct: false },
+        { text: "Knowledge of Allah", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the hybridization of carbon in methane (CH4)?",
+      question_text: "What is the doctrine of 'I'tizal' historically known for?",
       options: [
-        { text: "sp", is_correct: false },
-        { text: "sp²", is_correct: false },
-        { text: "sp³", is_correct: true },
-        { text: "sp³d", is_correct: false }
-      ],
-      subject: "Organic Chemistry",
-      difficulty_score: 8
+        { text: "Rational theology", is_correct: true },
+        { text: "Scriptural literalism", is_correct: false },
+        { text: "Mystical experience", is_correct: false },
+        { text: "Legal formalism", is_correct: false }
+      ]
     },
     {
-      question_text: "Which machine learning algorithm is used for clustering?",
+      question_text: "What is the term 'Barakah' in Islamic spirituality?",
       options: [
-        { text: "Linear Regression", is_correct: false },
-        { text: "Decision Trees", is_correct: false },
-        { text: "K-Means", is_correct: true },
-        { text: "Naive Bayes", is_correct: false }
-      ],
-      subject: "Machine Learning",
-      difficulty_score: 7
+        { text: "Divine blessing/grace", is_correct: true },
+        { text: "Divine wrath", is_correct: false },
+        { text: "Divine knowledge", is_correct: false },
+        { text: "Divine power", is_correct: false }
+      ]
     },
     {
-      question_text: "What is the Heisenberg Uncertainty Principle related to?",
+      question_text: "What is the concept of 'Kashf' in Sufi epistemology?",
       options: [
-        { text: "Position and momentum cannot be precisely measured simultaneously", is_correct: true },
-        { text: "Energy conservation in quantum systems", is_correct: false },
-        { text: "Wave-particle duality", is_correct: false },
-        { text: "Quantum entanglement", is_correct: false }
-      ],
-      subject: "Quantum Physics",
-      difficulty_score: 9
+        { text: "Mystical unveiling", is_correct: true },
+        { text: "Rational deduction", is_correct: false },
+        { text: "Scriptural interpretation", is_correct: false },
+        { text: "Empirical observation", is_correct: false }
+      ]
+    },
+    {
+      question_text: "What is the principle of 'Takhayyur' in Islamic jurisprudence?",
+      options: [
+        { text: "Selection among opinions", is_correct: true },
+        { text: "Rejection of all opinions", is_correct: false },
+        { text: "Creation of new opinion", is_correct: false },
+        { text: "Following majority opinion", is_correct: false }
+      ]
     }
   ]
 };
@@ -1009,8 +840,8 @@ export const seedQuestions = async () => {
     await Question.insertMany(advancedQuestions);
     console.log(`Inserted ${advancedQuestions.length} advanced questions`);
 
-    console.log('Successfully seeded all questions!');
-    return { success: true, message: 'Questions seeded successfully' };
+    console.log('Successfully seeded all Islamic questions!');
+    return { success: true, message: 'Islamic questions seeded successfully' };
   } catch (error) {
     console.error('Error seeding questions:', error);
     throw error;

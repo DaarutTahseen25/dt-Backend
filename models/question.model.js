@@ -25,18 +25,6 @@ const questionSchema = new mongoose.Schema(
       enum: ['beginner', 'intermediate', 'advanced'],
       lowercase: true,
     },
-    subject: {
-      type: String,
-      required: true,
-      trim: true,
-      default: 'General Knowledge'
-    },
-    difficulty_score: {
-      type: Number,
-      min: 1,
-      max: 10,
-      default: 5,
-    },
     is_active: {
       type: Boolean,
       default: true,
@@ -65,7 +53,6 @@ questionSchema.pre('save', function(next) {
 
 // Index for better performance
 questionSchema.index({ level: 1 });
-questionSchema.index({ subject: 1 });
 questionSchema.index({ is_active: 1 });
 
 // Static method to get questions by level
