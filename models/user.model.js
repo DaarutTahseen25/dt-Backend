@@ -46,6 +46,12 @@ const userSchema = new mongoose.Schema(
       enum: ['admin', 'teacher', 'student', 'admin'],
       default: 'student',
     },
+    level: {
+      type: String,
+      enum: ['beginner', 'intermediate', 'advanced'],
+      lowercase: true,
+      default: null,
+    },
     matric_number: {
       type: String,
       unique: true,

@@ -1,6 +1,6 @@
 import AppError from "../utils/AppError.js";
 import Question from "../models/question.model.js";
-import Level from "../models/level.model.js";
+import User from "../models/user.model.js";
 import TestSubmission from "../models/testSubmission.model.js";
 import { seedQuestions } from "../utils/seedQuestions.js";
 
@@ -10,26 +10,26 @@ export const getTest = async (req, res, next) => {
 
     console.log("📋 Test request from user:", userId);
 
-    const userLevel = await Level.findOne({ user_id: userId, is_active: true });
+    const user = await User.findById(userId).select('level');
 
-    if (!userLevel) {
+    if (!user || !user.level) {
       console.log("❌ No level registered for user");
       throw new AppError('Please register for a level first', 400);
     }
 
     // Check if user has already taken test for this level
-    const hasAlreadyTaken = await TestSubmission.hasUserTakenTest(userId, userLevel.level);
+    const hasAlreadyTaken = await TestSubmission.hasUserTakenTest(userId, user.level);
     if (hasAlreadyTaken) {
-      console.log("❌ User has already taken test for level:", userLevel.level);
+      console.log("❌ User has already taken test for level:", user.level);
       throw new AppError('You have already taken the test for this level', 400);
     }
 
-    console.log("🔍 Getting questions for level:", userLevel.level);
-    const questions = await Question.getQuestionsByLevel(userLevel.level, 30);
+    console.log("🔍 Getting questions for level:", user.level);
+    const questions = await Question.getQuestionsByLevel(user.level, 30);
 
     if (questions.length === 0) {
-      console.log("❌ No questions found for level:", userLevel.level);
-      throw new AppError(`No questions available for ${userLevel.level} level`, 404);
+      console.log("❌ No questions found for level:", user.level);
+      throw new AppError(`No questions available for ${user.level} level`, 404);
     }
 
     const formattedQuestions = questions.map(question => ({
@@ -41,13 +41,13 @@ export const getTest = async (req, res, next) => {
       }))
     }));
 
-    console.log(`✅ Retrieved ${questions.length} questions for ${userLevel.level} level`);
+    console.log(`✅ Retrieved ${questions.length} questions for ${user.level} level`);
 
     res.status(200).json({
       success: true,
-      message: `Test questions retrieved for ${userLevel.level} level`,
+      message: `Test questions retrieved for ${user.level} level`,
       data: {
-        level: userLevel.level,
+        level: user.level,
         total_questions: formattedQuestions.length,
         questions: formattedQuestions
       }
@@ -71,25 +71,25 @@ export const submitTest = async (req, res, next) => {
       throw new AppError('Answers are required and must be an array', 400);
     }
 
-    const userLevel = await Level.findOne({ user_id: userId, is_active: true });
-    if (!userLevel) {
+    const user = await User.findById(userId).select('level');
+    if (!user || !user.level) {
       console.log("❌ No level registered for user");
       throw new AppError('No level registration found', 400);
     }
 
     // Check if user has already taken test for this level
-    const hasAlreadyTaken = await TestSubmission.hasUserTakenTest(userId, userLevel.level);
+    const hasAlreadyTaken = await TestSubmission.hasUserTakenTest(userId, user.level);
     if (hasAlreadyTaken) {
-      console.log("❌ User has already taken test for level:", userLevel.level);
+      console.log("❌ User has already taken test for level:", user.level);
       throw new AppError('You have already taken the test for this level', 400);
     }
 
-    console.log("🔍 Processing test submission for level:", userLevel.level);
+    console.log("🔍 Processing test submission for level:", user.level);
 
     const questionIds = answers.map(answer => answer.question_id);
     const questions = await Question.find({ 
       _id: { $in: questionIds },
-      level: userLevel.level 
+      level: user.level 
     });
 
     if (questions.length !== answers.length) {
@@ -130,7 +130,7 @@ export const submitTest = async (req, res, next) => {
 
     const testSubmission = new TestSubmission({
       user_id: userId,
-      level: userLevel.level,
+      level: user.level,
       answers: processedAnswers,
       score,
       total_questions: questions.length,

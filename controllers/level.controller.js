@@ -1,5 +1,5 @@
 import AppError from "../utils/AppError.js";
-import Level from "../models/level.model.js";
+import User from "../models/user.model.js";
 
 export const registerLevel = async (req, res, next) => {
   try {
@@ -22,51 +22,28 @@ export const registerLevel = async (req, res, next) => {
       throw new AppError('Invalid level. Must be beginner, intermediate, or advanced', 400);
     }
 
-    console.log("🔍 Checking existing level registration for user:", userId);
-    const existingLevel = await Level.findOne({ user_id: userId });
+    console.log("🔄 Updating user level");
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { level: level.toLowerCase() },
+      { new: true, select: '_id full_name email level role' }
+    );
 
-    if (existingLevel) {
-      if (existingLevel.level === level.toLowerCase()) {
-        console.log("❌ User already registered for this level:", level);
-        throw new AppError('You are already registered for this level', 400);
-      }
-
-      console.log("🔄 Updating existing level registration from", existingLevel.level, "to", level);
-      existingLevel.level = level.toLowerCase();
-      existingLevel.registered_at = new Date();
-      await existingLevel.save();
-
-      console.log("✅ Level updated successfully");
-      return res.status(200).json({
-        success: true,
-        message: `Level updated successfully to ${level}`,
-        data: {
-          user_id: existingLevel.user_id,
-          level: existingLevel.level,
-          registered_at: existingLevel.registered_at,
-          is_active: existingLevel.is_active
-        }
-      });
+    if (!updatedUser) {
+      console.log("❌ User not found");
+      throw new AppError('User not found', 404);
     }
 
-    console.log("💾 Creating new level registration");
-    const newLevel = new Level({
-      user_id: userId,
-      level: level.toLowerCase(),
-      registered_at: new Date()
-    });
-
-    await newLevel.save();
-    console.log("✅ Level registered successfully:", newLevel._id);
-
-    res.status(201).json({
+    console.log("✅ Level registered successfully");
+    res.status(200).json({
       success: true,
       message: `Successfully registered for ${level} level`,
       data: {
-        user_id: newLevel.user_id,
-        level: newLevel.level,
-        registered_at: newLevel.registered_at,
-        is_active: newLevel.is_active
+        user_id: updatedUser._id,
+        level: updatedUser.level,
+        full_name: updatedUser.full_name,
+        email: updatedUser.email,
+        role: updatedUser.role
       }
     });
 
@@ -81,22 +58,28 @@ export const getUserLevel = async (req, res, next) => {
     const userId = req.user._id;
 
     console.log("🔍 Getting level for user:", userId);
-    const userLevel = await Level.findOne({ user_id: userId, is_active: true });
+    const user = await User.findById(userId).select('_id full_name email level role');
 
-    if (!userLevel) {
-      console.log("❌ No level found for user");
+    if (!user) {
+      console.log("❌ User not found");
+      throw new AppError('User not found', 404);
+    }
+
+    if (!user.level) {
+      console.log("❌ No level registered for user");
       throw new AppError('No level registered for this user', 404);
     }
 
-    console.log("✅ Level found:", userLevel.level);
+    console.log("✅ Level found:", user.level);
     res.status(200).json({
       success: true,
       message: 'User level retrieved successfully',
       data: {
-        user_id: userLevel.user_id,
-        level: userLevel.level,
-        registered_at: userLevel.registered_at,
-        is_active: userLevel.is_active
+        user_id: user._id,
+        level: user.level,
+        full_name: user.full_name,
+        email: user.email,
+        role: user.role
       }
     });
 
@@ -127,32 +110,34 @@ export const updateLevel = async (req, res, next) => {
       throw new AppError('Invalid level. Must be beginner, intermediate, or advanced', 400);
     }
 
-    const userLevel = await Level.findOne({ user_id: userId });
-
-    if (!userLevel) {
-      console.log("❌ No level registration found");
-      throw new AppError('No level registration found for this user', 404);
+    const user = await User.findById(userId);
+    if (!user) {
+      console.log("❌ User not found");
+      throw new AppError('User not found', 404);
     }
 
-    if (userLevel.level === level.toLowerCase()) {
+    if (user.level === level.toLowerCase()) {
       console.log("❌ Same level provided");
       throw new AppError('You are already registered for this level', 400);
     }
 
-    console.log("🔄 Updating level from", userLevel.level, "to", level);
-    userLevel.level = level.toLowerCase();
-    userLevel.registered_at = new Date();
-    await userLevel.save();
+    console.log("🔄 Updating level from", user.level, "to", level);
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { level: level.toLowerCase() },
+      { new: true, select: '_id full_name email level role' }
+    );
 
     console.log("✅ Level updated successfully");
     res.status(200).json({
       success: true,
       message: `Level updated successfully to ${level}`,
       data: {
-        user_id: userLevel.user_id,
-        level: userLevel.level,
-        registered_at: userLevel.registered_at,
-        is_active: userLevel.is_active
+        user_id: updatedUser._id,
+        level: updatedUser.level,
+        full_name: updatedUser.full_name,
+        email: updatedUser.email,
+        role: updatedUser.role
       }
     });
 
@@ -169,17 +154,17 @@ export const getAllLevels = async (_, res, next) => {
     const availableLevels = [
       { 
         name: 'beginner', 
-        description: 'Basic questions suitable for beginners',
+        description: 'Basic Islamic knowledge (5 pillars, prayers, Quran basics)',
         difficulty: 1
       },
       { 
         name: 'intermediate', 
-        description: 'Moderate questions for intermediate learners',
+        description: 'Islamic jurisprudence, history, theology, and practices',
         difficulty: 2
       },
       { 
         name: 'advanced', 
-        description: 'Challenging questions for advanced learners',
+        description: 'Complex Islamic philosophy, scholarship, and advanced theology',
         difficulty: 3
       }
     ];
