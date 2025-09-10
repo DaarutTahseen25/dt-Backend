@@ -95,28 +95,96 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
     return await bcrypt.compare(candidatePassword, this.password);
   };
 
-// Static method to generate matric number for students
+// Static method to generate matric number for students (with retry logic for race conditions)
 userSchema.statics.generateMatricNumber = async function() {
   const currentYear = new Date().getFullYear();
-  const count = await this.countDocuments({ 
-    role: 'student',
-    matric_number: { $regex: `^DT/${currentYear}/` }
-  });
+  const maxRetries = 10;
   
-  const nextNumber = (count + 1).toString().padStart(3, '0');
-  return `DT/${currentYear}/${nextNumber}`;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      // Find the highest existing matric number for current year
+      const latestStudent = await this.findOne(
+        { 
+          role: 'student',
+          matric_number: { $regex: `^DT/${currentYear}/` }
+        },
+        { matric_number: 1 },
+        { sort: { matric_number: -1 } }
+      );
+      
+      let nextNumber = 1;
+      if (latestStudent && latestStudent.matric_number) {
+        // Extract number from existing ID (e.g., "DT/2025/005" -> 5)
+        const match = latestStudent.matric_number.match(/DT\/\d{4}\/(\d{3})$/);
+        if (match) {
+          nextNumber = parseInt(match[1], 10) + 1;
+        }
+      }
+      
+      const matricNumber = `DT/${currentYear}/${nextNumber.toString().padStart(3, '0')}`;
+      
+      // Check if this ID already exists (race condition check)
+      const existingStudent = await this.findOne({ matric_number: matricNumber });
+      if (existingStudent) {
+        // ID was taken by another process, retry
+        continue;
+      }
+      
+      return matricNumber;
+    } catch (error) {
+      if (attempt === maxRetries) {
+        throw new Error(`Failed to generate unique matric number after ${maxRetries} attempts: ${error.message}`);
+      }
+      // Wait a bit before retrying (exponential backoff)
+      await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 10));
+    }
+  }
 };
 
-// Static method to generate teacher ID for teachers
+// Static method to generate teacher ID for teachers (with retry logic for race conditions)
 userSchema.statics.generateTeacherId = async function() {
   const currentYear = new Date().getFullYear().toString().slice(-2); // Get last 2 digits
-  const count = await this.countDocuments({ 
-    role: 'teacher',
-    teacher_id: { $regex: `^DT/${currentYear}/` }
-  });
+  const maxRetries = 10;
   
-  const nextNumber = (count + 1).toString().padStart(3, '0');
-  return `DT/${currentYear}/${nextNumber}`;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      // Find the highest existing teacher ID for current year
+      const latestTeacher = await this.findOne(
+        { 
+          role: 'teacher',
+          teacher_id: { $regex: `^DT/${currentYear}/` }
+        },
+        { teacher_id: 1 },
+        { sort: { teacher_id: -1 } }
+      );
+      
+      let nextNumber = 1;
+      if (latestTeacher && latestTeacher.teacher_id) {
+        // Extract number from existing ID (e.g., "DT/25/005" -> 5)
+        const match = latestTeacher.teacher_id.match(/DT\/\d{2}\/(\d{3})$/);
+        if (match) {
+          nextNumber = parseInt(match[1], 10) + 1;
+        }
+      }
+      
+      const teacherId = `DT/${currentYear}/${nextNumber.toString().padStart(3, '0')}`;
+      
+      // Check if this ID already exists (race condition check)
+      const existingTeacher = await this.findOne({ teacher_id: teacherId });
+      if (existingTeacher) {
+        // ID was taken by another process, retry
+        continue;
+      }
+      
+      return teacherId;
+    } catch (error) {
+      if (attempt === maxRetries) {
+        throw new Error(`Failed to generate unique teacher ID after ${maxRetries} attempts: ${error.message}`);
+      }
+      // Wait a bit before retrying (exponential backoff)
+      await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 10));
+    }
+  }
 };
 
 // Pre-save middleware to auto-generate matric number or teacher ID
