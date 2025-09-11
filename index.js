@@ -27,7 +27,8 @@ const allowedOrigins = [
   "https://daarut-tahseen25-git-dev-daaruttahseen-institution-s-projects.vercel.app",
   "https://daarut-tahseen25-git-dev-dt-institution.vercel.app",
   "https://daarut-tahseen25-51ixauh4o-dt-institution.vercel.app",
-  "https://daarut-tahseen.vercel.app"
+  "https://daarut-tahseen.vercel.app",
+  "https://daarut-tahseen25.vercel.app"
 
 ];
 
