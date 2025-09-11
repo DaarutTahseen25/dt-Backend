@@ -4,8 +4,8 @@
   "description": "This is the backend server for the DaarutTahseen LMS project.   It is built with **Node.js**, **Express.js**, and **MongoDB**, with clean code structure and beginner-friendly setup.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node init && node index.js",
+    "dev": "node init && nodemon index.js",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:restart": "docker-compose down && docker-compose up -d"
